@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão IA - Soluções em Inteligência Artificial</title>
+    <meta name="description" content="Conheça a Imersão IA. Soluções visuais ultrarrealistas e resultados em IA.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        // Cores extraídas das suas imagens de referência
+                        brand: {
+                            magenta: '#ff007f', // O Magenta vibrante da imagem
+                            'magenta-dark': '#cc0066',
+                            'magenta-light': '#ff3399',
+                            gray: '#5c606a', // O Cinza ardósia da imagem
+                            'gray-dark': '#454851',
+                            'gray-darker': '#2e3036',
+                            'gray-light': '#7a7e8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #2e3036; }
+        ::-webkit-scrollbar-thumb { background: #ff007f; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cc0066; }
+
+        /* General Utilities */
+        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #2e3036; }
+        
+        .header-scrolled {
+            background-color: rgba(46, 48, 54, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1.5px #ff007f;
+            color: transparent;
+        }
+
+        .title-underline-center::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff007f;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .title-underline-start::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ff007f;
+            margin: 10px 0 0;
+            border-radius: 2px;
+        }
+
+        /* Hover Effects */
+        .mosaic-item img {
+            transition: transform 0.7s ease;
+        }
+        .mosaic-item:hover img {
+            transform: scale(1.08);
+        }
+        
+        .case-card img {
+            transition: transform 0.7s ease;
+        }
+        .case-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0) !important;
+        }
+
+        /* Custom Navigation Arrows */
+        .swiper-button-next, .swiper-button-prev {
+            color: #ff007f !important;
+            background-color: #2e3036;
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            margin-top: -40px; /* Compensates for the pagination padding */
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: #ff007f;
+            color: #ffffff !important;
+            transform: scale(1.1);
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 18px !important;
+            font-weight: 900;
+        }
+        @media (max-width: 768px) {
+            .swiper-button-next, .swiper-button-prev {
+                display: none !important;
+            }
+        }
+
+        /* Video Overlay */
+        .video-overlay {
+            background: linear-gradient(to right, rgba(46, 48, 54, 0.9) 0%, rgba(46, 48, 54, 0.4) 100%);
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- HEADER -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 py-5 text-white bg-brand-gray-darker/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Imersão.ia -->
+            <a href="#" class="text-2xl font-black tracking-tighter flex items-center gap-2 group">
+                <div class="w-9 h-9 bg-brand-magenta rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-brand-magenta/40 text-white">
+                    <i class="fa-solid fa-brain text-sm"></i>
+                </div>
+                <span>IMERSÃO<span class="text-brand-magenta"> IA</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex gap-8 items-center font-semibold text-sm tracking-wide uppercase">
+                <a href="#hero" class="hover:text-brand-magenta transition-colors">A Imersão IA</a>
+                <a href="#solucoes" class="hover:text-brand-magenta transition-colors">Soluções</a>
+                <a href="#designs" class="hover:text-brand-magenta transition-colors">Designs</a>
+                <a href="#contato" class="px-6 py-2.5 bg-brand-magenta hover:bg-brand-magenta-dark rounded-full text-white transition-all shadow-lg shadow-brand-magenta/40">Contato</a>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-btn" class="lg:hidden text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars hover:text-brand-magenta transition-colors"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-gray-darker absolute top-full left-0 w-full flex flex-col border-t border-brand-gray shadow-2xl">
+            <a href="#hero" class="px-6 py-4 border-b border-brand-gray hover:bg-brand-gray hover:text-brand-magenta uppercase font-bold">A Imersão IA</a>
+            <a href="#solucoes" class="px-6 py-4 border-b border-brand-gray hover:bg-brand-gray hover:text-brand-magenta uppercase font-bold">Soluções</a>
+            <a href="#designs" class="px-6 py-4 border-b border-brand-gray hover:bg-brand-gray hover:text-brand-magenta uppercase font-bold">Designs</a>
+            <a href="#contato" class="px-6 py-4 text-brand-magenta font-black hover:bg-brand-gray uppercase">Contato</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION COM VÍDEO -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-gray-darker">
+        <!-- Background Video Clone -->
+        <video class="absolute inset-0 w-full h-full object-cover" src="https://cdn.pixabay.com/video/2021/08/04/83893-584742614_large.mp4" autoplay loop muted playsinline></video>
+        
+        <!-- Overlays -->
+        <div class="absolute inset-0 video-overlay"></div>
+        <div class="absolute inset-0 bg-brand-magenta mix-blend-multiply opacity-20"></div>
+
+        <div class="container mx-auto px-6 relative z-10 pt-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+            
+            <!-- Coluna da Esquerda: Textos -->
+            <div class="max-w-3xl lg:w-3/5">
+                <h2 class="text-white font-light text-2xl md:text-4xl tracking-widest mb-2 uppercase"></h2>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 uppercase tracking-tighter leading-none">
+                    <span class="text-outline">Inovação em</span><br>
+                    <span class="text-brand-magenta drop-shadow-lg">cada detalhe</span>
+                </h1>
+                <p class="text-brand-gray-light text-lg md:text-xl max-w-2xl mb-10 font-medium">
+                    A Imersão IA oferece soluções visuais ultrarrealistas e em alta definição para elevar o impacto e a conversão do seu negócio.
+                </p>
+                <a href="#quem-somos" class="inline-flex items-center gap-4 text-white border-2 border-brand-gray hover:border-brand-magenta px-8 py-4 rounded-full transition-all hover:bg-brand-magenta font-bold uppercase tracking-wide group">
+                    Descubra
+                    <i class="fa-solid fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Coluna da Direita: Imagem na Diagonal -->
+            <div class="w-full lg:w-2/5 flex justify-center lg:justify-end mt-10 lg:mt-0">
+                <div class="relative group cursor-zoom-in">
+                    <!-- Efeito de brilho/sombra magenta atrás da imagem -->
+                    <div class="absolute inset-0 bg-brand-magenta rounded-3xl transform rotate-6 scale-105 opacity-30 group-hover:opacity-50 transition-opacity blur-xl"></div>
+                    <img src="img/top.png" onerror="this.src='https://placehold.co/420x600/2e3036/ff007f?text=Imersão+IA'" alt="Trends IA Studio Arte 3D" class="relative z-10 w-64 md:w-80 lg:w-[420px] max-h-[600px] object-cover rounded-2xl transform -rotate-6 group-hover:-rotate-2 transition-transform duration-500 shadow-2xl border-4 border-brand-gray-darker">
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
+            <a href="#quem-somos" class="text-brand-magenta text-2xl"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="quem-somos" class="py-24 bg-white text-brand-gray-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black title-underline-center text-brand-gray-darker">Quem somos</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <p class="text-xl md:text-2xl text-brand-gray font-light leading-relaxed">
+                    A Imersão IA <strong class="text-brand-magenta">oferece soluções visuais ultrarrealistas</strong> e em alta definição para elevar o impacto e a conversão do seu negócio.
+                </p>
+            </div>
+
+            <!-- Stats Clone -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center p-8 rounded-3xl bg-brand-gray-darker text-white shadow-xl transform transition hover:-translate-y-2">
+                    <h3 class="text-5xl lg:text-6xl font-black text-brand-magenta mb-2 flex justify-center items-center">
+                        +<span class="counter" data-target="19">0</span>
+                    </h3>
+                    <p class="text-brand-gray-light font-bold uppercase tracking-widest text-sm">Anos de <br>mercado</p>
+                </div>
+                <div class="text-center p-8 rounded-3xl bg-brand-gray-darker text-white shadow-xl transform transition hover:-translate-y-2">
+                    <h3 class="text-5xl lg:text-6xl font-black text-brand-magenta mb-2 flex justify-center items-center">
+                        +<span class="counter" data-target="3500">0</span>
+                    </h3>
+                    <p class="text-brand-gray-light font-bold uppercase tracking-widest text-sm">Projetos de <br>sucesso entregues</p>
+                </div>
+                <div class="text-center p-8 rounded-3xl bg-brand-gray-darker text-white shadow-xl transform transition hover:-translate-y-2">
+                    <h3 class="text-5xl lg:text-6xl font-black text-brand-magenta mb-2 flex justify-center items-center">
+                        +<span class="counter" data-target="99">0</span>%
+                    </h3>
+                    <p class="text-gray-400 font-bold uppercase tracking-widest text-sm text-brand-gray-light">De satisfação <br>dos nossos clientes</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOLUÇÕES -->
+    <section id="solucoes" class="py-24 bg-brand-gray-darker text-white">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <span class="text-brand-magenta font-bold tracking-widest text-sm uppercase">Soluções</span>
+                <h2 class="text-4xl md:text-5xl font-black title-underline-start text-white">Digitais</h2>
+            </div>
+
+            <div class="flex flex-col gap-6 max-w-5xl mx-auto">
+                <!-- Marketing -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-wide text-white">Recuperação de momentos especiais</h3>
+                        <p class="text-gray-300 font-medium">Recupere fotos rasgadas, manchadas ou desbotadas. <a href="#" class="text-brand-magenta font-bold hover:underline whitespace-nowrap ml-1">Saiba +</a></p>
+                    </div>
+                </div>
+
+                <!-- Branding -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray-dark border border-brand-gray-dark hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-image-portrait text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-wide text-white">Eleve Sua Presença Digital</h3>
+                        <p class="text-gray-300 font-medium">Transforme sua selfie em uma foto de estúdio. <a href="#" class="text-brand-magenta font-bold hover:underline whitespace-nowrap ml-1">Saiba +</a></p>
+                    </div>
+                </div>
+
+                <!-- Performance -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-wide text-white">Sua Melhor Vitrine Digital</h3>
+                        <p class="text-gray-300 font-medium">Criamos Single Pages de alta conversão que transformam visitantes em clientes. Seu negócio funcionando e gerando resultados 24 horas por dia, 7 dias por semana. <a href="#" class="text-brand-magenta font-bold hover:underline whitespace-nowrap ml-1">Saiba +</a></p>
+                    </div>
+                </div>
+
+                <!-- Filmes -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray-dark border border-brand-gray-dark hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-clapperboard text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-wide text-white">Dê Play nas Suas Vendas</h3>
+                        <p class="text-gray-300 font-medium">Vídeos otimizados com seu produto para altas conversões nas suas redes sociais. <a href="#" class="text-brand-magenta font-bold hover:underline whitespace-nowrap ml-1">Saiba +</a></p>
+                    </div>
+                </div>
+
+                <!-- Desenvolvimento -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20 cursor-pointer">
+                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-address-card text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-black mb-2 uppercase tracking-wide text-white">Cartões Virtuais</h3>
+                        <p class="text-gray-300 font-medium">Soluções interativas e de alto padrão para o seu link na bio. Modelos exclusivos, com design ultrarrealista e otimizados para maximizar seus agendamentos e contatos. <a href="#" class="text-brand-magenta font-bold hover:underline whitespace-nowrap ml-1">Saiba +</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGNS -->
+    <section id="designs" class="py-24 bg-brand-gray overflow-hidden relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-brand-magenta font-bold tracking-widest text-sm uppercase">Projetos</span>
+                    <h2 class="text-4xl md:text-5xl font-black title-underline-start text-white">
+                        Designs
+                    </h2>
+                </div>
+            </div>
+
+            <!-- Carousel Area com Margem Lateral para Setas -->
+            <div class="relative group px-0 md:px-12">
+                <!-- Swiper Slider -->
+                <div class="swiper casesSwiper pb-16">
+                    <div class="swiper-wrapper">
+                        <!-- Helena Pereira -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl">
+                                <img src="img/ca4.jpg" alt="Helena Pereira" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Helena+Pereira'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-8">
+                                    <h3 class="text-2xl font-black text-white mb-1 uppercase">Helena Pereira</h3>
+                                    <p class="text-brand-magenta font-bold">Cartão Virtual</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Plena Vitta -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl">
+                                <img src="img/cl.png" alt="Plena Vitta Clínica Médica" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Plena+Vitta'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-8">
+                                    <h3 class="text-2xl font-black text-white mb-1 uppercase">Plena Vitta</h3>
+                                    <p class="text-brand-magenta font-bold">Social Media</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Campanha Automotiva -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl">
+                                <img src="img/an.png" alt="Campanha Automotiva" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Campanha+Automotiva'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-8">
+                                    <h3 class="text-2xl font-black text-white mb-1 uppercase">Campanha Automotiva</h3>
+                                    <p class="text-brand-magenta font-bold">Design Gráfico</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Moda Versa -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl">
+                                <img src="img/md.png" alt="Moda Versa" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Moda+Versa'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-8">
+                                    <h3 class="text-2xl font-black text-white mb-1 uppercase">Moda Versa</h3>
+                                    <p class="text-brand-magenta font-bold">Social Media</p>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Convite Ana Clara -->
+                        <div class="swiper-slide">
+                            <a href="#" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl">
+                                <img src="img/cv.png" alt="Chá de Bebê Ana Clara" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Chá+de+Bebê'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 p-8">
+                                    <h3 class="text-2xl font-black text-white mb-1 uppercase">Convite Ana Clara</h3>
+                                    <p class="text-brand-magenta font-bold">Identidade Visual</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Setas de Navegação -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="bg-brand-magenta py-24 relative overflow-hidden text-white flex items-center justify-center">
+        <!-- SVG Decorativo Giratório Background -->
+        <svg class="absolute w-[600px] h-[600px] text-white opacity-10 animate-[spin_20s_linear_infinite]" viewBox="0 0 557 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M155.862 80.5637C196.649 56.4619 401.699 9 401.699 9C401.699 9 411.34 56.0911 391.317 85.0132C371.294 113.935 323.832 117.643 236.324 145.453C172.642 161.133 125.085 175.117 125.085 175.117C125.085 175.117 115.074 104.665 155.862 80.5637Z" stroke="currentColor" stroke-width="3" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M311.029 195.307C238.092 214.161 176.066 230.486 173.19 231.585C149.429 240.667 130.686 262.935 125.44 288.314C124.248 294.089 124.051 297.282 124.347 306.093L124.708 316.832L140.323 377.113C148.912 410.268 156.632 439.263 157.481 441.548C159.604 447.267 163.577 454.394 167.915 460.266C183.254 481.024 211.571 493.462 236.959 490.59C242.428 489.971 276.193 481.545 361.955 459.397C426.582 442.708 481.228 428.361 483.392 427.515C506.758 418.382 524.198 398.33 530.703 373.12C533.608 361.862 532.787 337.199 529.507 337.199C528.939 337.199 461.419 354.517 379.463 375.684C297.505 396.85 230.333 414.051 230.19 413.908C230.047 413.765 223.502 388.752 215.644 358.323C206.503 322.918 201.653 302.892 202.173 302.704C202.62 302.542 246.137 291.267 298.877 277.646C352.525 263.791 397.141 251.893 400.155 250.637C412.195 245.62 426.332 234.04 433.607 223.233C443.808 208.082 448.66 189.596 446.908 172.551C446.114 164.83 445.017 161.768 444 161.5C443.615 161.399 383.964 176.453 311.029 195.307Z" stroke="currentColor" stroke-width="3" />
+        </svg>
+
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+            <h2 class="text-4xl md:text-6xl font-black uppercase text-left leading-tight">
+                <span class="font-light">Pronto para o</span> <br> próximo nível?
+            </h2>
+            <a href="#contato" class="inline-flex items-center gap-3 px-10 py-5 bg-brand-gray-darker text-white rounded-full font-bold text-lg hover:bg-white hover:text-brand-gray-darker transition-colors shadow-2xl uppercase">
+                Fale Conosco <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTATO -->
+    <footer id="contato" class="bg-brand-gray-darker text-brand-gray-light py-16 border-t-[8px] border-brand-magenta">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+                <!-- Col 1: Links -->
+                <div>
+                    <h3 class="text-white font-black mb-6 uppercase tracking-wider text-sm">Navegação</h3>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li><a href="#hero" class="hover:text-brand-magenta transition-colors">A Imersão IA</a></li>
+                        <li><a href="#solucoes" class="hover:text-brand-magenta transition-colors">Soluções</a></li>
+                        <li><a href="#designs" class="hover:text-brand-magenta transition-colors">Designs</a></li>
+                        <li><a href="#" class="hover:text-brand-magenta transition-colors">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 2: Contato -->
+                <div>
+                    <h3 class="text-white font-black mb-6 uppercase tracking-wider text-sm">Contato</h3>
+                    <ul class="space-y-5">
+                        <li>
+                            <a href="https://wa.me/5554996776008" class="flex items-center gap-4 hover:text-brand-magenta transition-colors group">
+                                <div class="w-10 h-10 rounded-full bg-brand-gray-dark flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold">(54) 99677.6008</p>
+                                    <p class="text-xs">Mande uma mensagem</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:ellite@ellitedigital.com.br" class="flex items-center gap-4 hover:text-brand-magenta transition-colors group">
+                                <div class="w-10 h-10 rounded-full bg-brand-gray-dark flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold">ellite@ellitedigital.com.br</p>
+                                    <p class="text-xs">Fale por e-mail</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Local e Redes -->
+                <div>
+                    <h3 class="text-white font-black mb-6 uppercase tracking-wider text-sm">Siga-nos</h3>
+                    <div class="flex gap-3 mb-8">
+                        <a href="#" class="w-10 h-10 rounded-full bg-brand-gray-dark flex items-center justify-center text-white hover:bg-brand-magenta transition-all hover:scale-110">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="pt-8 border-t border-brand-gray-dark text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2 font-black tracking-tighter text-lg text-white">
+                    <div class="w-6 h-6 bg-brand-magenta rounded-md flex items-center justify-center text-white">
+                        <i class="fa-solid fa-brain text-[10px]"></i>
+                    </div>
+                    <span>IMERSÃO<span class="text-brand-magenta"> IA</span></span>
+                </div>
+                <p>&copy; 2026 Imersão IA. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE IMAGEM (ZOOM) -->
+    <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center p-4 sm:p-10 transition-opacity duration-300 opacity-0 cursor-zoom-out">
+        <button id="close-modal" class="absolute top-4 right-6 text-white hover:text-brand-magenta text-5xl font-light focus:outline-none transition-colors z-[101]">&times;</button>
+        <img id="modal-image" src="" alt="Zoom" class="max-w-full max-h-full object-contain scale-95 transition-transform duration-300 cursor-default shadow-2xl rounded-xl">
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- Scripts da Página -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- HEADER SCROLL EFFECT ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                    header.classList.remove('bg-brand-gray-darker/50', 'py-5');
+                    header.classList.add('py-3');
+                } else {
+                    header.classList.remove('header-scrolled');
+                    header.classList.add('bg-brand-gray-darker/50', 'py-5');
+                    header.classList.remove('py-3');
+                }
+            });
+
+            // --- MOBILE MENU TOGGLE ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Fechar menu mobile ao clicar num link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- SWIPER CAROUSEL (CASES) ---
+            const swiper = new Swiper('.casesSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                    1280: { slidesPerView: 4, spaceBetween: 30 },
+                }
+            });
+
+            // --- COUNTER ANIMATION ---
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200; 
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+
+            // Trigger da animação usando Intersection Observer
+            const statsSection = document.getElementById('quem-somos');
+            let animated = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !animated) {
+                    animateCounters();
+                    animated = true;
+                }
+            }, { threshold: 0.5 });
+
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // --- LÓGICA DO MODAL DE IMAGEM ---
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            const closeModalBtn = document.getElementById('close-modal');
+            
+            // Seleciona todos os cards de cases para aplicar o zoom
+            const zoomableElements = document.querySelectorAll('.case-card');
+
+            const openModal = (src, alt) => {
+                modalImg.src = src;
+                modalImg.alt = alt;
+                modal.classList.remove('hidden');
+                
+                // Força um "reflow" para que a transição do Tailwind funcione corretamente
+                void modal.offsetWidth; 
+                
+                modal.classList.remove('opacity-0');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+                document.body.style.overflow = 'hidden'; // Remove o scroll do fundo da página
+            };
+
+            const closeModal = () => {
+                modal.classList.add('opacity-0');
+                modalImg.classList.remove('scale-100');
+                modalImg.classList.add('scale-95');
+                
+                // Aguarda o fim da animação visual antes de ocultar o display
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = ''; // Restaura o scroll
+                }, 300);
+            };
+
+            // Adiciona o evento de clique a todas as imagens selecionadas
+            zoomableElements.forEach(element => {
+                // Altera o cursor para indicar que a área pode ser ampliada
+                element.style.cursor = 'zoom-in';
+                
+                element.addEventListener('click', (e) => {
+                    e.preventDefault(); // Evita que a página role para o topo (padrão de href="#")
+                    
+                    // Verifica se clicou diretamente na imagem ou na div/link em volta
+                    let targetImg = element.tagName.toLowerCase() === 'img' ? element : element.querySelector('img');
+                    
+                    if (targetImg && targetImg.src) {
+                        openModal(targetImg.src, targetImg.alt);
+                    }
+                });
+            });
+
+            // Opções para fechar o modal
+            closeModalBtn.addEventListener('click', closeModal);
+            
+            // Fecha ao clicar na área escura ao redor da imagem
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            
+            // Fecha ao pressionar a tecla Esc no teclado
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
