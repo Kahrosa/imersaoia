@@ -429,6 +429,7 @@
                     <p class="text-gray-200 font-bold uppercase tracking-widest text-sm">De satisfação <br>dos clientes</p>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -911,18 +912,21 @@
                 });
             }
 
-            const statsSection = document.getElementById('quem-somos');
+        // OTIMIZAÇÃO MOBILE: Observa o container exato dos números em vez da seção inteira
+        const statsContainer = document.querySelector('[aria-label="Estatísticas da Agência"]');
             let animated = false;
 
+        // Reduz o threshold para 0.1 para funcionar perfeitamente no mobile,
+        // onde elementos empilhados podem não atingir 50% da tela de uma vez só.
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting && !animated) {
                     animateCounters();
                     animated = true;
                 }
-            }, { threshold: 0.5 });
+        }, { threshold: 0.1 });
 
-            if (statsSection) {
-                observer.observe(statsSection);
+        if (statsContainer) {
+            observer.observe(statsContainer);
             }
 
             // --- LÓGICA DO MODAL DE IMAGEM ---
