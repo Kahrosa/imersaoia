@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://kahrosa.github.io/imersaoia/">
     <meta property="og:title" content="Imersão IA – Soluções Visuais com Inteligência Artificial em Porto Alegre">
     <meta property="og:description" content="Restauração de fotos antigas, landing pages de alta conversão e soluções de IA visual. Transforme sua presença digital.">
-    <meta property="og:image" content="https://kahrosa.github.io/imersaoia/img/top.png">
+    <meta property="og:image" content="img/top.webp">
     <meta property="og:site_name" content="Imersão IA">
     <meta property="og:locale" content="pt_BR">
 
@@ -26,7 +26,7 @@
     <meta name="twitter:url" content="https://kahrosa.github.io/imersaoia/">
     <meta name="twitter:title" content="Imersão IA – Soluções Visuais com IA">
     <meta name="twitter:description" content="Restauração de fotos antigas, landing pages e soluções de IA visual para Porto Alegre e região.">
-    <meta name="twitter:image" content="https://kahrosa.github.io/imersaoia/img/top.png">
+    <meta name="twitter:image" content="img/top.webp">
 
     <!-- ÍCONES PARA RESULTADOS DE BUSCA (Favicons) -->
     <!-- Ícone SVG embutido com o logo rosa e cérebro branco (Recomendado pelo Google) -->
@@ -59,11 +59,12 @@
                     colors: {
                         brand: {
                             magenta: '#ff007f', 
-                            'magenta-dark': '#be005e', /* OTIMIZAÇÃO ACESSIBILIDADE: Tom mais escuro para garantir contraste 4.5:1 no fundo branco */
+                            'magenta-dark': '#be005e',
                             'magenta-light': '#ff3399',
-                            gray: '#5c606a', 
-                            'gray-dark': '#454851',
-                            'gray-darker': '#2e3036',
+                            gray: '#2b2630', 
+                            'gray-dark': '#17141a',
+                            /* COR ALTERADA PARA PRETO PROFUNDO IGUAL AO FUNDO DO LOGO */
+                            'gray-darker': '#0c0a0d', 
                             'gray-light': '#7a7e8a',
                         }
                     }
@@ -75,21 +76,13 @@
     <style>
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #2e3036; }
+        ::-webkit-scrollbar-track { background: #0c0a0d; }
         ::-webkit-scrollbar-thumb { background: #ff007f; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #cc0066; }
 
         /* General Utilities */
-        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #2e3036; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #ffffff; color: #0c0a0d; }
         
-        .header-scrolled {
-            background-color: rgba(46, 48, 54, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
         .text-outline {
             -webkit-text-stroke: 1.5px #ff007f;
             color: transparent;
@@ -115,6 +108,32 @@
             border-radius: 2px;
         }
 
+        /* EFEITOS AVANÇADOS DE HEADER E NEON */
+        .header-base {
+            background-color: #0c0a0d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .header-scrolled {
+            background-color: rgba(12, 10, 13, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 0, 127, 0.15);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.9);
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
+        }
+
+        @keyframes neon-pulse-glow {
+            0%, 100% { opacity: 0.15; transform: translate(-50%, -50%) scale(0.9); filter: blur(30px); }
+            50% { opacity: 0.40; transform: translate(-50%, -50%) scale(1.1); filter: blur(40px); }
+        }
+        
+        .animate-neon-glow {
+            animation: neon-pulse-glow 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+
         /* Hover Effects */
         .mosaic-item img { transition: transform 0.7s ease; }
         .mosaic-item:hover img { transform: scale(1.08); }
@@ -125,7 +144,7 @@
         /* Custom Navigation Arrows */
         .swiper-button-next, .swiper-button-prev {
             color: #ff007f !important;
-            background-color: #2e3036;
+            background-color: #0c0a0d;
             width: 48px !important;
             height: 48px !important;
             border-radius: 50%;
@@ -142,7 +161,7 @@
         @media (max-width: 768px) { .swiper-button-next, .swiper-button-prev { display: none !important; } }
 
         /* Video Overlay */
-        .video-overlay { background: linear-gradient(to right, rgba(46, 48, 54, 0.9) 0%, rgba(46, 48, 54, 0.4) 100%); }
+        .video-overlay { background: linear-gradient(to right, rgba(12, 10, 13, 0.95) 0%, rgba(12, 10, 13, 0.5) 100%); }
     </style>
 
     <!-- OTIMIZAÇÃO SEO AEO AVANÇADO: Schema Markup Profissional Completo -->
@@ -163,8 +182,8 @@
           "@id": "https://kahrosa.github.io/imersaoia/#organization",
           "name": "Imersão IA",
           "url": "https://kahrosa.github.io/imersaoia/",
-          "logo": "https://kahrosa.github.io/imersaoia/img/top.png",
-          "image": "https://kahrosa.github.io/imersaoia/img/top.png",
+          "logo": "img/logo-imersao-ia-inteligencia-artificial-porto-alegre.png",
+          "image": "https://kahrosa.github.io/imersaoia/img/top.webp",
           "description": "Agência especializada em soluções visuais com inteligência artificial, atendendo Porto Alegre, Canoas e região metropolitana RS.",
           "telephone": "+55-54-99677-6008",
           "email": "ellite@ellitedigital.com.br",
@@ -276,13 +295,21 @@
 <body class="antialiased overflow-x-hidden">
 
     <!-- HEADER -->
-    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 py-5 text-white bg-brand-gray-darker/50 backdrop-blur-sm">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-500 py-3 text-white header-base">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" aria-label="Ir para a página inicial" class="text-2xl font-black tracking-tighter flex items-center gap-2 group">
-                <div class="w-9 h-9 bg-brand-magenta rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-brand-magenta/40 text-white">
-                    <i class="fa-solid fa-brain text-sm" aria-hidden="true"></i>
-                </div>
-                <span>IMERSÃO<span class="text-brand-magenta"> IA</span></span>
+            
+            <!-- LOGO COM EFEITO NEON CIRCULAR E BORDAS ARREDONDADAS -->
+            <a href="#" aria-label="Ir para a página inicial" class="relative flex items-center justify-center overflow-hidden h-[60px] w-[180px] md:h-[75px] md:w-[220px] group rounded-full">
+                
+                <!-- Efeito Neon Orb Atrás do Logo -->
+                <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-brand-magenta rounded-full animate-neon-glow group-hover:opacity-70 group-hover:scale-125 transition-all duration-700 pointer-events-none mix-blend-screen -translate-x-1/2 -translate-y-1/2 blur-2xl opacity-40 z-0"></div>
+                
+                <!-- Escala ajustada com Máscara Radial para remover completamente o formato quadrado da imagem -->
+                <img src="img/logo-imersao-ia-inteligencia-artificial-porto-alegre.png" 
+                     alt="Logo Imersão IA - Agência de Inteligência Artificial em Porto Alegre" 
+                     class="absolute inset-0 w-full h-full object-contain scale-[1.3] md:scale-[1.19] mix-blend-lighten contrast-125 brightness-95 group-hover:scale-[1.35] md:group-hover:scale-[1.5] transition-transform duration-500 z-10"
+                     style="-webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%); mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);"
+                     width="220" height="75">
             </a>
 
             <!-- Desktop Nav -->
@@ -290,8 +317,10 @@
                 <a href="#hero" class="hover:text-brand-magenta transition-colors">A Agência</a>
                 <a href="#solucoes" class="hover:text-brand-magenta transition-colors">Soluções IA</a>
                 <a href="#faq" class="hover:text-brand-magenta transition-colors">Dúvidas Frequentes</a>
-                <a href="https://wa.me/5551995367825?text=Ol%C3%A1,%20Karina!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas." target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 bg-[#25D366] hover:bg-[#1ebe57] rounded-full text-white transition-all shadow-lg shadow-[#25D366]/40 flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-lg" aria-hidden="true"></i> WhatsApp
+                
+                <!-- Botão WhatsApp Estilo Premium Premium -->
+                <a href="https://wa.me/5551995367825?text=Ol%C3%A1,%20Karina!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas." target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-[#25D366] hover:bg-[#1ebe57] rounded-full text-white font-black transition-all duration-300 shadow-[0_0_15px_rgba(37,211,102,0.3)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] hover:-translate-y-1 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i> WHATSAPP
                 </a>
             </nav>
 
@@ -349,7 +378,7 @@
                 <div class="relative group cursor-zoom-in">
                     <div class="absolute inset-0 bg-brand-magenta rounded-3xl transform rotate-6 scale-105 opacity-30 group-hover:opacity-50 transition-opacity blur-xl"></div>
                     <!-- OTIMIZAÇÃO: Dimensões explícitas adicionadas para evitar Cumulative Layout Shift -->
-                    <img src="img/top.webp" onerror="this.src='https://placehold.co/420x600/2e3036/ff007f?text=Imersão+IA'" alt="Estúdio de Arte 3D e Inteligência Artificial Porto Alegre" width="420" height="600" class="relative z-10 w-64 md:w-80 lg:w-[420px] max-h-[600px] object-cover rounded-2xl transform -rotate-6 group-hover:-rotate-2 transition-transform duration-500 shadow-2xl border-4 border-brand-gray-darker">
+                    <img src="img/top.webp" onerror="this.src='https://placehold.co/420x600/0c0a0d/ff007f?text=Imersão+IA'" alt="Estúdio de Arte 3D e Inteligência Artificial Porto Alegre" width="420" height="600" class="relative z-10 w-64 md:w-80 lg:w-[420px] max-h-[600px] object-cover rounded-2xl transform -rotate-6 group-hover:-rotate-2 transition-transform duration-500 shadow-2xl border-4 border-brand-gray-darker">
                 </div>
             </div>
         </div>
@@ -443,7 +472,7 @@
                 
                 <!-- 1. Restauração (H3) -->
                 <article id="restauracao-fotos-porto-alegre" aria-labelledby="title-restauracao" class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20">
-                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 rounded-full bg-[#1e1b24] flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-wand-magic-sparkles text-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1">
@@ -459,7 +488,7 @@
 
                 <!-- 2. Foto Profissional IA (H3) -->
                 <article id="foto-profissional-ia" aria-labelledby="title-foto-ia" class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray-dark border border-brand-gray-dark hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20">
-                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 rounded-full bg-[#1e1b24] flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-image-portrait text-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1">
@@ -475,7 +504,7 @@
 
                 <!-- 3. Landing Page (H3) -->
                 <article id="landing-page-porto-alegre" aria-labelledby="title-landing-page" class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20">
-                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 rounded-full bg-[#1e1b24] flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-laptop text-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1">
@@ -491,7 +520,7 @@
 
                 <!-- 4. Vídeos (H3) -->
                 <article id="videos-redes-sociais" aria-labelledby="title-videos-ia" class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray-dark border border-brand-gray-dark hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20">
-                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 rounded-full bg-[#1e1b24] flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-clapperboard text-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1">
@@ -507,7 +536,7 @@
 
                 <!-- 5. Cartão Digital (H3) -->
                 <article id="cartao-visita-virtual-canoas" aria-labelledby="title-cartao-digital" class="group flex flex-col md:flex-row items-start md:items-center gap-6 p-8 rounded-2xl bg-brand-gray border border-brand-gray hover:border-brand-magenta transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-magenta/20">
-                    <div class="w-16 h-16 rounded-full bg-brand-gray-darker flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
+                    <div class="w-16 h-16 rounded-full bg-[#1e1b24] flex items-center justify-center shrink-0 text-brand-magenta group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-address-card text-2xl" aria-hidden="true"></i>
                     </div>
                     <div class="flex-1">
@@ -544,7 +573,7 @@
                         <div class="swiper-slide">
                             <!-- role="button": abre modal via JS; href="#" + preventDefault evita javascript: na URL -->
                             <a href="#" role="button" aria-label="Ampliar imagem do Cartão de Visita Virtual Helena Pereira" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl focus:outline-none focus:ring-4 focus:ring-brand-magenta">
-                                <img src="img/Cartão Virtual.webp" alt="Cartão de Visita Virtual Helena Pereira" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Helena+Pereira'">
+                                <img src="img/Cartão Virtual.webp" alt="Cartão de Visita Virtual Helena Pereira" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/0c0a0d/ff007f?text=Helena+Pereira'">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
                                 <div class="absolute bottom-0 left-0 p-8">
                                     <h3 class="text-2xl font-black text-white mb-1 uppercase">Helena Pereira</h3>
@@ -555,7 +584,7 @@
                         
                         <div class="swiper-slide">
                             <a href="#" role="button" aria-label="Ampliar imagem do projeto de Social Media Plena Vitta Clínica Médica" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl focus:outline-none focus:ring-4 focus:ring-brand-magenta">
-                                <img src="img/Story do Instagram.webp" alt="Social Media Plena Vitta Clínica Médica" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Plena+Vitta'">
+                                <img src="img/Story do Instagram.webp" alt="Social Media Plena Vitta Clínica Médica" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/0c0a0d/ff007f?text=Plena+Vitta'">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
                                 <div class="absolute bottom-0 left-0 p-8">
                                     <h3 class="text-2xl font-black text-white mb-1 uppercase">Dia do Pediatra</h3>
@@ -566,7 +595,7 @@
 
                         <div class="swiper-slide">
                             <a href="#" role="button" aria-label="Ampliar imagem da Campanha Automotiva Porto Alegre" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl focus:outline-none focus:ring-4 focus:ring-brand-magenta">
-                                <img src="img/Branco Simples Ícone Odontologia Logotipo.webp" alt="Campanha Automotiva Porto Alegre" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Campanha+Automotiva'">
+                                <img src="img/Branco Simples Ícone Odontologia Logotipo.webp" alt="Campanha Automotiva Porto Alegre" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/0c0a0d/ff007f?text=Campanha+Automotiva'">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
                                 <div class="absolute bottom-0 left-0 p-8">
                                     <h3 class="text-2xl font-black text-white mb-1 uppercase"> Clínica Dentária Ville</h3>
@@ -577,7 +606,7 @@
 
                         <div class="swiper-slide">
                             <a href="#" role="button" aria-label="Ampliar imagem do projeto Moda Versa Landing Page" class="block case-card relative rounded-2xl overflow-hidden aspect-[4/5] bg-brand-gray-darker shadow-2xl focus:outline-none focus:ring-4 focus:ring-brand-magenta">
-                                <img src="img/Convite Infantil.webp" alt="Moda Versa Landing Page e Social Media" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/2e3036/ff007f?text=Moda+Versa'">
+                                <img src="img/Convite Infantil.webp" alt="Moda Versa Landing Page e Social Media" loading="lazy" width="400" height="500" class="w-full h-full object-cover filter grayscale" onerror="this.src='https://placehold.co/400x500/0c0a0d/ff007f?text=Moda+Versa'">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-gray-darker via-brand-gray-darker/40 to-transparent"></div>
                                 <div class="absolute bottom-0 left-0 p-8">
                                     <h3 class="text-2xl font-black text-white mb-1 uppercase">Ana Clara</h3>
@@ -768,7 +797,7 @@
                         <li>
                             <a href="https://wa.me/5551995367825" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 hover:text-brand-magenta transition-colors group p-1 -ml-1">
                                 <!-- OTIMIZAÇÃO TOUCH TARGET: w-12 h-12 (mínimo 44px exigido pelo Google) -->
-                                <div class="w-12 h-12 rounded-full bg-brand-gray-dark flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-[#17141a] flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors shrink-0">
                                     <i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -779,7 +808,7 @@
                         </li>
                         <li>
                             <a href="mailto:ellite@ellitedigital.com.br" class="flex items-center gap-4 hover:text-brand-magenta transition-colors group p-1 -ml-1">
-                                <div class="w-12 h-12 rounded-full bg-brand-gray-dark flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors shrink-0">
+                                <div class="w-12 h-12 rounded-full bg-[#17141a] flex items-center justify-center text-white group-hover:bg-brand-magenta transition-colors shrink-0">
                                     <i class="fa-solid fa-envelope text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -795,7 +824,7 @@
                 <div>
                     <h3 class="text-white font-black mb-6 uppercase tracking-wider text-sm">Acompanhe nosso trabalho</h3>
                     <div class="flex gap-3 mb-4">
-                        <a href="https://www.instagram.com/imersaoia9/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Imersão IA" class="w-12 h-12 rounded-full bg-brand-gray-dark flex items-center justify-center text-white hover:bg-brand-magenta transition-all hover:scale-110">
+                        <a href="https://www.instagram.com/imersaoia9/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Imersão IA" class="w-12 h-12 rounded-full bg-[#17141a] flex items-center justify-center text-white hover:bg-brand-magenta transition-all hover:scale-110">
                             <i class="fa-brands fa-instagram text-xl" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -805,13 +834,20 @@
             </div>
 
             <!-- Bottom Footer -->
-            <div class="pt-8 border-t border-brand-gray-dark text-sm flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-2 font-black tracking-tighter text-lg text-white">
-                    <div class="w-6 h-6 bg-brand-magenta rounded-md flex items-center justify-center text-white">
-                        <i class="fa-solid fa-brain text-[10px]" aria-hidden="true"></i>
-                    </div>
-                    <span>IMERSÃO<span class="text-brand-magenta"> IA</span></span>
+            <div class="pt-8 border-t border-[#17141a] text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+                
+                <!-- LOGO OTIMIZADA FOOTER COM EFEITO CIRCULAR -->
+                <div class="relative flex items-center justify-center overflow-hidden h-[65px] md:h-[80px] w-[190px] md:w-[240px] rounded-full">
+                    <!-- Efeito Neon Orb Atrás do Logo no Footer -->
+                    <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-brand-magenta rounded-full pointer-events-none mix-blend-screen -translate-x-1/2 -translate-y-1/2 blur-2xl opacity-20 z-0"></div>
+                    
+                    <img src="img/logo-imersao-ia-inteligencia-artificial-porto-alegre.png" 
+                         alt="Logo Imersão IA - Agência de Inteligência Artificial em Porto Alegre" 
+                         class="absolute inset-0 w-full h-full object-contain scale-[1.3] md:scale-[1.19] mix-blend-lighten contrast-125 brightness-90 z-10"
+                         style="-webkit-mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%); mask-image: radial-gradient(ellipse at center, black 65%, transparent 100%);"
+                         width="240" height="80">
                 </div>
+                
                 <p>&copy; 2026 Imersão IA. Todos os direitos reservados.</p>
             </div>
         </div>
@@ -841,12 +877,10 @@
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.classList.add('header-scrolled');
-                    header.classList.remove('bg-brand-gray-darker/50', 'py-5');
-                    header.classList.add('py-3');
+                    header.classList.remove('header-base', 'py-2', 'md:py-4');
                 } else {
                     header.classList.remove('header-scrolled');
-                    header.classList.add('bg-brand-gray-darker/50', 'py-5');
-                    header.classList.remove('py-3');
+                    header.classList.add('header-base', 'py-2', 'md:py-4');
                 }
             });
 
