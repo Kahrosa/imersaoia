@@ -13,4 +13,4 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://kahrosa.github.io/imersaoia/sitemap.xml
+Sitemap: https://imersaodigital8k.com.br/sitemap.xml
